@@ -1,0 +1,20 @@
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">Soft Drinks</li>
+        <li class="list-group-item">Fruit Juices</li>
+        <li class="list-group-item">Tea and Coffee</li>
+        
+      </ul>
+
+      <div class="card" style="width: 18rem;" *ngFor="let category of categories">
+        <img src="{{_image_url+category.catImage}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4 class="card-title">{{category.catName}}</h4>
+          <h5 class="card-text">shop the best products here.</h5>
+          <a href="#" class="btn btn-warning">Shop here</a>
+          
+        </div>
+        <br><br>
+      </div>
+
+</div>
