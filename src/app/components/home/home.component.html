@@ -1,16 +1,26 @@
 <div class="container">
+  <app-header></app-header>
+</div>
+
+<div class="container">
     <h3 class="text-center">All Catagories</h3><br>
-   
-    <div class="card" style="width: 18rem;" *ngFor="let category of categories">
-        <img src="{{_image_url+category.catImage}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h4 class="card-title">{{category.catName}}</h4>
-          <h5 class="card-text">shop the best products here.</h5>
-          <a href="#" class="btn btn-warning">Shop here</a>
+     <div class="row">
+       <div class="col-sm" *ngFor="let category of categories">
+        <div class="card"style="width: 18rem;">
+          <div  (click)="onSelectCategory(category)" >
+          <img src="{{_image_url+category.catImage}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 class="card-title">{{category.catName}}</h4>
+            <h5 class="card-text">shop the best products here.</h5>
+              <button class="btn btn-warning" routerLink="/products">Shop here</button>
+            
+          </div>
+        </div>
           
         </div>
-        <br><br>
-      </div>
+       </div>
+     </div>
+    
    
 </div>
 

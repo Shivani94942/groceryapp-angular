@@ -1,0 +1,209 @@
+
+<app-header></app-header>
+<div class="container">
+
+    
+     <h1 class="fas fa-registered"> Registration</h1>
+   <div class="row">
+       <div class="col-lg-3"></div>
+        <div class="col-lg-6"> 
+             
+            <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+                
+                        <div class="form-group">
+                            <label for="">UserName</label>
+                            <input #userName="ngModel" 
+                            [(ngModel)]="userModel.username"
+                             [class.is-invalid]="userName.invalid && userName.touched"
+                            name="username" type="text"
+                             class="form-control" required>
+                             <small class="text-danger" 
+                             [class.d-none]="userName.valid || userName.untouched">
+                             This is required field</small>
+
+                             <!-- <div *ngIf="userName.errors && (userName.invalid && userName.touched)">
+
+                                <small *ngIf="userName.errors.required" 
+                                class="text-danger">pattern="^\d[a-zA-Z]{3,15}$"
+                                    This is required field</small>
+                                <small *ngIf="userName.errors.pattern" 
+                                class="text-danger">
+                                    Enter the valid User name</small>
+                                    </div> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input #password="ngModel" 
+                            [(ngModel)]="userModel.password" 
+                            name="password"
+                             [class.is-invalid]="password.invalid && password.touched"
+                            type="password" pattern="((?=.*\d)(?=.*[a-zA-Z]).{8,15})"
+                            class="form-control" required>
+                            <div *ngIf="password.errors && (password.invalid && password.touched)">
+
+                                <small *ngIf="password.errors.required" 
+                                class="text-danger">
+                                    This is required field</small>
+                                <small *ngIf="password.errors.pattern" 
+                                class="text-danger">
+                                    Enter the valid password</small>
+
+                             </div>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input #email="ngModel" 
+                            [(ngModel)]="userModel.email"
+                            pattern="^[a-z0-9._%+-]+@[a-z0-9]+\.[a-z]{2,4}$"
+                             name="email"
+                            [class.is-invalid]="email.invalid && email.touched"
+                             type="email" class="form-control" required>
+                             <div *ngIf="email.errors && (email.invalid && email.touched)">
+
+                                <small *ngIf="email.errors.required" 
+                                class="text-danger">
+                                    This is required field</small>
+                                <small *ngIf="email.errors.pattern" 
+                                class="text-danger">
+                                    Enter the valid password</small>
+
+                             </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="">Mobile Number</label>
+                            <input #mobile="ngModel" [(ngModel)]="userModel.mobile" 
+                            name="mobile" 
+                            [class.is-invalid]="mobile.invalid && mobile.touched"
+                             type="tel" class="form-control" 
+                             required pattern="^\d{10}$">
+                             <!-- <small class="text-danger"
+                             [class.d-none]="mobile.valid || mobile.untouched"
+                             >This is required field with valid number</small> -->
+                             <div *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
+
+                                <small *ngIf="mobile.errors.required" 
+                                class="text-danger">
+                                    This is required field</small>
+                                <small *ngIf="mobile.errors.pattern" 
+                                class="text-danger">
+                                    Enter the valid mobile number</small>
+
+                             </div>
+
+                             
+                             
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select [(ngModel)]="userModel.category" 
+                            name="category"
+                             class="form-control">
+                             <option>----Please select----</option>
+                                <option *ngFor="let Interest of interest">
+                                    {{Interest}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            Gender
+                            <div class="form-check">
+                            <input [(ngModel)]="userModel.gender"
+                             type="radio"
+                             name="gender" value="male" 
+                             class="form-check-input">
+                            <label class="form-check-label">Male</label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input [(ngModel)]="userModel.gender"
+                                 type="radio" 
+                                name="gender" value="female" 
+                                class="form-check-input">
+                                <label class="form-check-label">Female</label>
+                                </div>
+                        </div>
+                        <div class="form-group">  
+                            <input [(ngModel)]="userModel.subscribe"
+                             name="subscribe"
+                              type="checkbox" > Subscribe    
+                        </div>
+                        <div class="form-group">  
+                            <input  type="submit" 
+                            value="Register" 
+                            [disabled]="!userForm.valid"
+                            class="btn btn-primary">   
+                        </div>
+
+            </form>
+        </div>
+            
+    </div>
+            <div class="col-lg-3"></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <h2 class="text-center">Register</h2><br><br>
+
+<p>First Name :
+ <input type="text" name="firstName" id=""><br><br></p> 
+<p> Last Name : 
+<input type="text" name="lastName" id=""><br><br></p> 
+<p> Gender:
+ <input type="radio" name="male" id="">Male  <input type="radio" name="female" id="">Female <input type="radio" name="other" id="">Other <br><br></p> 
+<p> Email Id :      
+<input type="email" name="email" id=""><br><br></p> 
+<p> New Password: 
+<input type="password" name="password" id=""><br><br></p> 
+<p> Confirm Password: 
+<input type="password" name="password" id=""><br><br></p> 
+<p> Mobile Number:
+ <input type="number" name="mobno" id=""><br><br></p> 
+<p> Date Of Birth: 
+<input type="date" name="dob" id=""><br><br></p> 
+
+<button class="btn btn-primary">Register</button>
+
+</div>
+ -->

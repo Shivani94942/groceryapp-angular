@@ -1,0 +1,32 @@
+
+<!-- <h2>{{catId}}</h2><br> -->
+<h2>Sub Categories</h2><br>
+<div class="container">
+    <ul class="list-group"  style="cursor: pointer;"  *ngFor="let subcat of subCategory">
+        <li class="list-group-item" style="cursor: pointer;" (click)="onSelectSubCategory(subcat.subId)">{{ subcat.subName }}</li>
+      </ul>
+        <br><br>
+      <div class="row">
+        <div class="col-sm"  *ngFor="let product of products">
+          
+        <div class="card " style="width: 16rem;padding: 20px;">
+          <span class="badge-discount" style="box-sizing: border-box;color: white ;background-color:darkslategrey; width: 40px; border-radius:10%;">10%</span>
+            <img src="{{ _image_url+product.image }}" class="card-img-top" width="120" height="200" alt="...">
+            <div class="card-body">
+              <h5 class="card-text text-center">{{product.productName}}</h5>
+              <div>
+                <p>
+                  <span style="font-size: 24px;font-weight: bold;">{{ product.price*70 | currency:'INR' }} </span>
+                  <span style="text-decoration: line-through;">{{ product.mrp*70 | currency:'INR' }}</span></p>
+              </div>
+              
+              <button class="btn btn-warning" (click)= "addToCart(product)">Add to cart</button>
+
+            </div>
+            
+          </div>
+        </div>
+        <br><br> 
+       </div>
+
+</div>
